@@ -1,8 +1,11 @@
 # Table of Content
 
 ## Create Schema
-Before creating a table, it’s good practice to create a schema for the table to be housed in. Though, this is not a necessary requirement for a table as there is a default schema called ‘Public’ available for every new database, creating a schema allows for tables to be organised which is ideal when you have multiple tables or different types of data within table. For the purpose of this example, I have a created a new schema called loyalty_programme as the data in the tables are not related to the hospital sample data that was used in the general_hospital schema. Click here to see this sample data.
-The code line to used to create a schema is CREATE SCHEMA along with the Schema name. Alternatively, the same result can be achieved by right clicking on “Schemas” in PostresSQL and selecting Create > Schema. Once the schema has been created, it will appear under the schemas section. 
+Before creating a table, it’s good practice to create a schema for the table to be housed in. Though, this is not a necessary requirement for a table as there is a default schema called ‘Public’ available for every new database, creating a schema allows for tables to be organised which is ideal when you have multiple tables or different types of data within table. 
+
+For the purpose of this example, I have a created a new schema called ````loyalty_programme```` as the data in the tables are not related to the hospital sample data that was used in the general_hospital schema. [Click here to see this sample data.](https://github.com/ellnathan/SQL-Hospital-Sample-Data)
+
+The code line to used to create a schema is ```CREATE SCHEMA``` along with the Schema name. Alternatively, the same result can be achieved by right clicking on ```Schemas``` in PostresSQL and selecting Create > Schema. Once the schema has been created, it will appear under the schemas section. 
 
 ````sql
 CREATE SCHEMA loyalty_programme
