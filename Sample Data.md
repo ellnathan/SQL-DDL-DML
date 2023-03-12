@@ -61,7 +61,7 @@ Though the zip_code column only contains numeric values, INTEGER is not selected
 
 **CHECK:** Use a constraint that is commonly used for emails to validate that the email follows a specific pattern and eliminate any potential errors or invalid characters. 
 
-Once the code has been run, we can check that the datatypes and constraints have been defined to the columns.
+Once the table has been created, we can check that the datatypes and constraints have been defined by running a simple SELECT ALL statement.
 
 ````sql
 SELECT * FROM loyalty_programme.customers_info
