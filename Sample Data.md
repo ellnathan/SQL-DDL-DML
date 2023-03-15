@@ -68,4 +68,28 @@ SELECT * FROM loyalty_programme.customers_info
 ````
 ![output table](https://user-images.githubusercontent.com/121811651/224580953-7f691356-af34-4637-a7b1-243e68631a1f.png)
 
+# Adding Data to the Table
+To add records to the table, the values can be inputted using INSERT TO statement or copy data from an external file i.e CSV. Starting with the latter, the syntax to copy data from a CSV file into a table:
+
+````sql
+COPY loyalty_programme.customers_info 
+FROM 'C:\Users\****** \******\customers_info.csv' DELIMITER ',' CSV; --(file path blanked out for protection)
+````
+Breaking this command down:
+
+**COPY** - loyalty_programme.customers_info is the schema and table name respectively.
+
+**FROM** – The file specified where the CSV is located.
+
+**DELIMITER** – “,” specifies that a comma delimiter has been used to separate the values in each row
+
+**CSV** – This specifies that the input file format is CSV.
+
+When this command is executed, it reads the data from the CSV file and inserts it into the customers_info table. As the CSV does not have headers, it does not need to be mentioned in the code, though it’s important that data in the different columns in the table align the data in the CSV.
+
+## Data Copied into Table:
+![image](https://user-images.githubusercontent.com/121811651/225465204-2a729632-f861-41c7-842b-aeb41daa559c.png)
+
+
+
 
