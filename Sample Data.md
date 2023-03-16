@@ -33,16 +33,17 @@ There are many different types of datatypes and constraints that can be defined 
 
 ```sql
 CREATE TABLE loyalty_programme.customers_info (
-	id BIGSERIAL NOT NULL PRIMARY KEY,
-	first_name VARCHAR(50) NOT NULL,
-	last_name VARCHAR(50) NOT NULL,
-	address VARCHAR(50) NOT NULL,
-	county VARCHAR(50) NOT NULL,
-	state_code VARCHAR(10) NOT NULL,
-	zip_code VARCHAR(10)NOT NULL,
-	phone_number VARCHAR(20) NOT NULL,
-	email VARCHAR(100) NOT NULL CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$')
-)
+    customer_id BIGSERIAL PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    address VARCHAR(50) NOT NULL,
+    county VARCHAR(50) NOT NULL,
+    state_code VARCHAR(10) NOT NULL,
+    zip_code VARCHAR(10) NOT NULL,
+    phone_number VARCHAR(20) NOT NULL,
+    email VARCHAR(100) NOT NULL CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$')
+);
+
 ````
 
 **Datatypes used and why:**
@@ -72,23 +73,27 @@ SELECT * FROM loyalty_programme.customers_info
 To add records to the table, the values can be inputted using INSERT TO statement or copy data from an external file i.e CSV. Starting with the latter, the syntax to copy data from a CSV file into a table:
 
 ````sql
-COPY loyalty_programme.customers_info 
-FROM 'C:\Users\****** \******\customers_info.csv' DELIMITER ',' CSV; --(file path blanked out for protection)
+COPY loyalty_programme.customers_info(first_name, last_name, address, county, state_code, zip_code, phone_number, email)
+FROM 'C:\Users\*****\*****\sample_data.csv'
+WITH CSV; --(file path blanked out for protection)
 ````
 Breaking this command down:
 
-**COPY** - loyalty_programme.customers_info is the schema and table name respectively.
+**COPY** - Command is used to load data into the table ```loyalty_programme.customers_info``` The column names for which data is being inserted are specified in parentheses after the table name.
 
-**FROM** – The file specified where the CSV is located.
+**FROM** - Keyword specifies the source file from which data will be loaded
 
-**DELIMITER** – “,” specifies that a comma delimiter has been used to separate the values in each row
-
-**CSV** – This specifies that the input file format is CSV.
+**WITH** keyword specifies that the source file is in CSV format.
 
 When this command is executed, it reads the data from the CSV file and inserts it into the customers_info table. As the CSV does not have headers, it does not need to be mentioned in the code, though it’s important that data in the different columns in the table align the data in the CSV.
 
 ## Data Copied into Table:
-![image](https://user-images.githubusercontent.com/121811651/225465204-2a729632-f861-41c7-842b-aeb41daa559c.png)
+In the ```CREATE TABLE``` command the ```customer_id``` column was defined as ```BIGSERIAL```. This is a PostgreSQL data type that is used to define a column that is automatically populated with a unique integer value for each new row that is inserted into the table.
+
+When a new row of data is inserted into the table, the customer_id column will automatically generate a unique integer value. This is because the BIGSERIAL data type that is defined generates the unique integer values. This is useful when you need to ensure that each row has a unique identifier, but you don't want to manually specify the value for each new row. 
+
+![image](https://user-images.githubusercontent.com/121811651/225484515-b160934f-7de5-40b5-9e1b-25dcefd791d0.png)
+
 
 
 
