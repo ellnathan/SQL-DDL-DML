@@ -92,7 +92,30 @@ In the ```CREATE TABLE``` command the ```customer_id``` column was defined as ``
 
 When a new row of data is inserted into the table, the customer_id column will automatically generate a unique integer value. This is because the BIGSERIAL data type that is defined generates the unique integer values. This is useful when you need to ensure that each row has a unique identifier, but you don't want to manually specify the value for each new row. 
 
-![image](https://user-images.githubusercontent.com/121811651/225484515-b160934f-7de5-40b5-9e1b-25dcefd791d0.png)
+![image](https://user-images.githubusercontent.com/121811651/225487194-f8fa7039-261a-46f1-9bd1-f30951ce43c3.png)
+
+
+## Inserting Records:
+
+To add more records to the customers_info table, the INSERT INTO command can be used. The basic syntax:
+
+````sql
+INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3...);
+````
+The column names must be specify in the same order as they appear in the table, for the values which are to be added to the columns. Each value must be enclosed in parentheses and separated by commas and must match the number of columns in the table.
+
+In this example, I’ve added a new record to the table has can be found at the bottom of the table ID – 501 which is automatically added.
+
+```sql
+INSERT INTO loyalty_programme.customers_info
+(first_name,last_name,address,county,state_code,zip_code,phone_number,email)
+VALUES
+	('Phineas', 'Ferb', '452 Example Road', 'Atlanta','GA','95321', '332-452-1344', 'phineas.ferb@gmail.com')
+```
+
+![image](https://user-images.githubusercontent.com/121811651/225487113-9e6842b0-2199-42f6-b0bb-3aef2db60b6d.png)
+
 
 
 
