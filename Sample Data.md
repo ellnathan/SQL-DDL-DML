@@ -134,11 +134,11 @@ If there's a record being inserted into the table which has an email that alread
 INSERT INTO loyalty_programme.customers_info
 (first_name, last_name, address, county, state_code, zip_code, phone_number, email)
 VALUES
-('Joey', 'Bravo', 'Front Street', 'New York', 'NY', '13011', '193-178-2874', 'joeyb@live.com')
+('Joey', 'Bravo', 'Front Street', 'New York', 'NY', '13011', '193-178-2874', '**joeyb@live.com**')
 ```	
 ![image](https://user-images.githubusercontent.com/121811651/225794800-ad9d5b75-1524-44d5-a2a9-75695f6e50c0.png)
 
-This happens are customer_id = 503 has the same email address.
+This happens as customer_id = '503' has the same email address
 
 ![image](https://user-images.githubusercontent.com/121811651/225795580-e00c0a53-a0ae-45b8-ac36-07a3d58f5dca.png)
 
