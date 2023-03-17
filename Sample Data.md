@@ -105,16 +105,19 @@ VALUES (value1, value2, value3...);
 ````
 The column names must be specify in the same order as they appear in the table, for the values which are to be added to the columns. Each value must be enclosed in parentheses and separated by commas and must match the number of columns in the table.
 
-In this example, I’ve added a new record to the table has can be found at the bottom of the table ID – 501 which is automatically added.
+In this example, I’ve added new records to the table which can be found at the bottom of the table. Customer_ID – 501, 502, 503 and 504 which is automatically added.
 
 ```sql
 INSERT INTO loyalty_programme.customers_info
 (first_name,last_name,address,county,state_code,zip_code,phone_number,email)
 VALUES
 	('Phineas', 'Ferb', '452 Example Road', 'Atlanta','GA','95321', '332-452-1344', 'phineas.ferb@gmail.com')
+	('Bart', 'Simpson', 'Springfield Bound', 'Chicago', 'IL', '67011', '462-722-7034', 'bsimpson@aol.com'),
+	('Joey', 'Bavo', '382 Rayman Road', 'Dallas', 'TX', '31268', '342-102-1255', 'joeyb@live.com'),
+	('Jessica', 'Emard', '567 Village Court', 'Los Angeles', 'CA', '78489', '914-522-6755', 'jemard@gmail.com');
 ```
+![image](https://user-images.githubusercontent.com/121811651/225788598-55a97049-b3a7-4c3e-a294-076a7450e2ec.png)
 
-![image](https://user-images.githubusercontent.com/121811651/225487113-9e6842b0-2199-42f6-b0bb-3aef2db60b6d.png)
 
 
 
