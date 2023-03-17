@@ -118,6 +118,14 @@ VALUES
 ```
 ![image](https://user-images.githubusercontent.com/121811651/225788598-55a97049-b3a7-4c3e-a294-076a7450e2ec.png)
 
+# Adding an Additional Constraint
+
+An additional constraint worth adding is ```UNIQUE``` for the email column. This is a beneficial constraint to prevent duplicate email addresses from being inserting into the table which could happen if there are customers with similar names and email formats.
+
+```sql
+ALTER TABLE loyalty_programme.customers_info
+ADD CONSTRAINT unique_email UNIQUE (email)
+````
 
 
 
