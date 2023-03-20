@@ -142,6 +142,43 @@ This happens as customer_id = '503' has the same email address
 
 ![image](https://user-images.githubusercontent.com/121811651/225795580-e00c0a53-a0ae-45b8-ac36-07a3d58f5dca.png)
 
+# Updating Existing Records
+
+In the County column, there are two counties which have slightly inaccurate states written, which are Orleans and Baltimore City.
+
+```sql
+SELECT *
+FROM loyalty_programme.customers_info
+WHERE COUNTY IN ('Orleans', 'Baltimore City')
+ORDER BY COUNTY
+```
+![before update county](https://user-images.githubusercontent.com/121811651/226217381-fb82dc96-82af-402f-b85b-1a53f177a9f4.png)
+
+## CASE to Update Existing Records
+
+For data consistency, these two counties can be updated: Orleans to New Orleans and Baltimore to Baltimore. To implement these changes CASE can be used. 
+```sql
+UPDATE loyalty_programme.customers_info
+SET county = CASE 
+              WHEN county = 'Baltimore City' THEN 'Baltimore'
+              WHEN county = 'Orleans' THEN 'New Orleans'
+              ELSE county
+            END
+```
+
+For data consistency, these two counties can be updated: Orleans to New Orleans and Baltimore to Baltimore. To implement these changes, ```CASE``` can be used which will update the County value if specific conditions are met in the query.
+
+In the query, the ```SET``` keyword specifies the column to be update which is County in this case. 
+
+```WHEN county = 'Baltimore City' THEN 'Baltimore' ```
+```WHEN county = 'Orleans' THEN 'New Orleans' ```
+
+In this part of the query, the condition checks if the counties stated are equalled to Baltimore City and Orleans, if these conditions are met, they are updated to Baltimore and New Orleans respectively. 
+
+``ELSE`` - If none of the previous conditions are met, no updates are done, this is because no other conditions have been stated in the query. Lastly, the query is closed with ``END``.
+
+Here are the 8 records which have been updated, along with other records which were previously correct: 
+![image](https://user-images.githubusercontent.com/121811651/226219261-27ef81a2-0c2f-4b4b-9dfc-ca7b903c7f12.png)
 
 
 
