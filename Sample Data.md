@@ -1,5 +1,9 @@
 # Table of Content
 
+- [Create Schema](#Section-1)
+- [Create Table](#Section-2)
+
+
 ## Create Schema
 Before creating a table, it’s good practice to create a schema for the table to be housed in. Though, this is not a necessary requirement for a table as there is a default schema called ‘Public’ available for every new database, creating a schema allows for tables to be organised which is ideal when you have multiple tables or different types of data within table. 
 
